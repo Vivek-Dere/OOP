@@ -1,0 +1,82 @@
+#include <iostream>
+using namespace std;
+class Complex
+{
+private:
+int real, img;
+public:
+void read();
+void display();
+void add(Complex);
+void subtract(Complex);
+void multiply(Complex);
+void divide(Complex);
+void conjugate();
+};
+void Complex::read()
+{
+cout << "Enter real part: ";
+cin >> real;
+cout << "Enter imaginary part: ";
+cin >> img;
+}
+void Complex::display()
+{
+cout << real << " + " << img << "i" << endl;
+}
+void Complex::add(Complex C)
+{
+Complex result;
+result.real = real + C.real;
+
+result.img = img + C.img;
+result.display();
+}
+void Complex::subtract(Complex C)
+{
+Complex result;
+result.real = real - C.real;
+result.img = img - C.img;
+result.display();
+}
+void Complex::multiply(Complex C)
+{
+Complex result;
+result.real = (real * C.real) - (img * C.img);
+result.img = (real * C.img) + (img * C.real);
+result.display();
+}
+void Complex::divide(Complex C)
+{
+Complex result;
+int denominator = (C.real * C.real) + (C.img * C.img);
+result.real = ((real * C.real) + (img * C.img)) / denominator;
+result.img = ((img * C.real) - (real * C.img)) / denominator;
+result.display();
+}
+void Complex::conjugate()
+{
+cout << real << " + " << -img << "i" << endl;
+}
+int main()
+{
+
+Complex C1, C2;
+cout << "Enter first complex number:\n";
+C1.read();
+cout << "\nEnter second complex number:\n";
+C2.read();
+cout << "\nAddition: ";
+C2.add(C1);
+cout << "Subtraction: ";
+C2.subtract(C1);
+cout << "Multiplication: ";
+C2.multiply(C1);
+cout << "Division: ";
+C2.divide(C1);
+cout << "Conjugate of first number: ";
+C1.conjugate();
+cout << "Conjugate of second number: ";
+C2.conjugate();
+return 0;
+}

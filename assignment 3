@@ -1,0 +1,56 @@
+#include <iostream>
+using namespace std;
+class Sorting
+{
+private:
+int arr[100], n;
+public:
+void read();
+void display();
+void swapNumbers(int j);
+void sortArray();
+};
+void Sorting::read()
+{
+cout << "Enter total elements: ";
+cin >> n;
+cout << "Enter array elements:\n";
+for (int i = 0; i < n; i++)
+cin >> arr[i];
+}
+void Sorting::display()
+{
+for (int i = 0; i < n; i++)
+cout << arr[i] << "\t";
+cout << endl;
+}
+void Sorting::swapNumbers(int j)
+{
+int temp;
+
+temp = arr[j];
+arr[j] = arr[j + 1];
+arr[j + 1] = temp;
+}
+void Sorting::sortArray()
+{
+for (int i = 0; i < n - 1; i++)
+{
+for (int j = 0; j < n - 1 - i; j++)
+{
+if (arr[j] > arr[j + 1])
+swapNumbers(j);
+}
+}
+}
+int main()
+{
+Sorting S;
+S.read();
+cout << "\nOriginal Array:\n";
+S.display();
+S.sortArray();
+cout << "\nSorted Array:\n";
+S.display();
+return 0;
+}
