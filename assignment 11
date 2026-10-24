@@ -1,0 +1,40 @@
+#include <iostream>
+using namespace std;
+
+template <class T>
+class Demo
+{
+    T a, b;
+
+public:
+    Demo(T x, T y)
+    {
+        a = x;
+        b = y;
+    }
+
+    void display()
+    {
+        cout << "Values: " << a << " " << b << endl;
+    }
+};
+
+template <class T>
+T add(T a, T b)
+{
+    return a + b;
+}
+
+int main()
+{
+    Demo<int> d1(10, 20);
+    Demo<float> d2(2.5f, 3.5f);
+
+    d1.display();
+    d2.display();
+
+    cout << "Sum of integers: " << add(10, 20) << endl;
+    cout << "Sum of floats: " << add(2.5f, 3.5f) << endl;
+
+    return 0;
+}
