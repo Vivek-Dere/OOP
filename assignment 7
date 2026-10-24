@@ -1,0 +1,44 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class String
+{
+    string str;
+
+public:
+    String()
+    {
+        str = "";
+    }
+
+    String(string s)
+    {
+        str = s;
+    }
+
+    void Accept()
+    {
+        cout << "Enter a string: ";
+        getline(cin, str);
+    }
+
+    void Display()
+    {
+        cout << "String: " << str << endl;
+    }
+
+    ~String()
+    {
+    }
+};
+
+int main()
+{
+    String s;
+
+    s.Accept();
+    s.Display();
+
+    return 0;
+}
